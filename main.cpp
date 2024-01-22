@@ -2,6 +2,8 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <algorithm>
+
 
 using namespace std;
 
@@ -89,8 +91,22 @@ void zapiszNajwyzszaSredniaDoPliku(const vector<Student>& studenci, const string
 
 
 void wyszukajDaneStudenta(const vector<Student>& studenci, const string& imie, const string& nazwisko) {
+    string imieLowerCase = imie;
+    string nazwiskoLowerCase = nazwisko;
+
+    // Zamień imię i nazwisko na małe litery
+    transform(imieLowerCase.begin(), imieLowerCase.end(), imieLowerCase.begin(), ::tolower);
+    transform(nazwiskoLowerCase.begin(), nazwiskoLowerCase.end(), nazwiskoLowerCase.begin(), ::tolower);
+
     for (const auto& student : studenci) {
-        if (student.imie == imie && student.nazwisko == nazwisko) {
+        string studentImieLowerCase = student.imie;
+        string studentNazwiskoLowerCase = student.nazwisko;
+
+        // Zamień imię i nazwisko studenta na małe litery
+        transform(studentImieLowerCase.begin(), studentImieLowerCase.end(), studentImieLowerCase.begin(), ::tolower);
+        transform(studentNazwiskoLowerCase.begin(), studentNazwiskoLowerCase.end(), studentNazwiskoLowerCase.begin(), ::tolower);
+
+        if (studentImieLowerCase == imieLowerCase && studentNazwiskoLowerCase == nazwiskoLowerCase) {
             cout << "Dane studenta " << imie << " " << nazwisko << ":" << endl;
             cout << "Imie: " << student.imie << ", Nazwisko: " << student.nazwisko << ", Srednia: " << obliczSrednia(student.oceny) << endl;
             return;
@@ -99,6 +115,7 @@ void wyszukajDaneStudenta(const vector<Student>& studenci, const string& imie, c
 
     cout << "Nie znaleziono studenta o podanym imieniu i nazwisku." << endl;
 }
+
 
 
 int main() {
