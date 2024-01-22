@@ -1,0 +1,10 @@
+Karolina Nowak 4 4 5 3 5
+Kamil Szewczyk 2 3 1 2 2
+Agnieszka Jankowska 5 5 4 5 4
+Piotr Lisowski 3 2 2 3 2
+Magdalena Wojciechowska 5 4 5 5 4
+Bartłomiej Krawczyk 2 1 1 2 1
+Kinga Nowicka 4 3 4 4 3
+Rafał Malinowski 5 5 5 4 5
+Marta Kozłowska 3 4 3 2 3
+Kacper Szymański 1 1 2 1 1
